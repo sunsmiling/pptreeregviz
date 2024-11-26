@@ -152,7 +152,7 @@ ppshapr.simple <- function(PPTreeregOBJ, testObs, final.rule, final.leaf = NULL)
 
   dt_combinations <- feature_exact(n_features, weight_zero_m= 10^6)
   weighted_mat <- weight_matrix(X = dt_combinations , normalize_W_weights = TRUE)
-  feature_matrix <- shapr::feature_matrix_cpp(features =  dt_combinations[["features"]], m = n_features)
+  feature_matrix <- shapr::coalition_matrix_cpp(coalitions =  dt_combinations[["features"]], m = n_features)
   n_combinations <- nrow(feature_matrix)
   n_samples <- 1e3
 
@@ -283,7 +283,7 @@ ppshapr.empirical <- function(PPTreeregOBJ, testObs, final.rule, final.leaf = NU
 
   dt_combinations <- feature_exact(n_features, weight_zero_m= 10^6)
   weighted_mat <- weight_matrix(X = dt_combinations , normalize_W_weights = TRUE)
-  feature_matrix <- shapr::feature_matrix_cpp(features =  dt_combinations[["features"]], m = n_features)
+  feature_matrix <- shapr::coalition_matrix_cpp(coalitions =  dt_combinations[["features"]], m = n_features)
   n_combinations <- nrow(feature_matrix)
   n_samples <- 1e3
 
